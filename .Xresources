@@ -1,0 +1,14 @@
+#include "/home/toby/.colors/BlackBoard"
+
+*font: xft:Inconsolata:pixelsize=15
+*boldFont: xft:Inconsolata:pixelsize=15
+
+emacs.font: Inconsolata 12
+emacs.fontbackend: xft
+
+URxvt*perm-ext-common default,matcher,clipboard
+
+urxvt*depth: 32
+urxvt*background: rgba:0000/0200/0500/A100
+urxvt*scrollBar: false
+

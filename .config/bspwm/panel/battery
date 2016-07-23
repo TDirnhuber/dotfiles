@@ -1,0 +1,29 @@
+#! /bin/sh
+
+BATC=/sys/class/power_supply/BAT1/capacity
+BATS=/sys/class/power_supply/BAT1/status
+
+charging=""
+discharging=""
+full=""
+
+
+while [ 1 ];do
+    status=$(cat $BATS)
+    charge=$(cat $BATC)
+    case $status in 
+	Full)
+	    icon=$full
+	    ;;
+	Charging)
+	    icon=$charging
+	    ;;	     
+	Discharging)
+	    icon=$discharging	    
+	    ;;
+    esac
+    echo B$icon$charge
+    sleep 10
+done
+
+	    

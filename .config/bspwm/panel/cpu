@@ -1,0 +1,9 @@
+#! /bin/sh
+
+
+while [ 1 ];do
+    cpu_use=$(ps -eo pcpu | awk 'BEGIN {sum=0.0f} {sum+=$1} END {print sum}')
+    echo "C$cpu_use"
+    sleep 3
+done
+    

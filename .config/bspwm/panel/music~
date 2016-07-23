@@ -1,0 +1,26 @@
+#! /bin/sh
+#Get current playing song
+
+vol_icon=""
+playing_icon=""
+paused_icon=""
+stopped_icon=""
+      
+while [ 1 ];do
+    if [ $?=0 ];then
+	current=$(mpc current)
+	vol=$(mpc|awk '/volume:/{print $2+0}')
+	if [ -n "$current" ];then
+	    playing=$(mpc|grep ^\\[playing)
+	    if [ -n "$playing" ];then
+		echo "M${vol_icon}${vol} ${playing_icon}${current}"
+	    else
+		echo "M${vol_icon}${vol} ${paused_icon}${current}"
+	    fi
+	else
+	    echo "M${vol_icon}${vol} ${stopped_icon}"
+	fi
+    fi
+    mpc idle >/dev/null
+done
+
