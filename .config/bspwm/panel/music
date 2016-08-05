@@ -9,7 +9,7 @@ stopped_icon=""
 while [ 1 ];do
     if [ $?=0 ];then
 	current=$(mpc current)
-	vol=$(mpc|awk '/volume:/{print $2+0}')
+	vol=$(mpc|sed -n 's/volume\: \{0,1\}\([0-9]*\).*/\1/p'
 	if [ -n "$current" ];then
 	    playing=$(mpc|grep ^\\[playing)
 	    if [ -n "$playing" ];then

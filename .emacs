@@ -3,11 +3,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(custom-enabled-themes (quote (blackboard)))
- '(custom-safe-themes
-   (quote
-    ("f641bdb1b534a06baa5e05ffdb5039fb265fde2764fbfd9a90b0d23b75f3936b" default)))
- '(menu-bar-mode nil)
+'(menu-bar-mode nil)
  '(scroll-bar-mode nil)
  '(show-paren-mode t)
  '(tool-bar-mode nil))
@@ -21,4 +17,27 @@
 (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/"))
 (package-initialize)
 (require 'evil)
+(package-initialize)
 (evil-mode 1)
+(add-to-list 'custom-theme-load-path "~/.emacs.d/emacs-color-theme-solarized")
+(load-theme 'solarized t)
+(global-linum-mode t) ;; Display line number at left
+(line-number-mode 1)
+(fringe-mode '(16 . 4))
+(when (>= emacs-major-version 24)
+  (require 'package)
+  (add-to-list
+   'package-archives
+   '("melpa" . "http://melpa.org/packages/")
+   t)
+  (package-initialize))
+(require 'helm)
+(require 'auto-complete)
+(require 'helm-config)
+(add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/"))
+(package-initialize)
+(global-set-key (kbd "C-:") 'ac-complete-with-helm)
+(define-key ac-complete-mode-map (kbd "C-:") 'ac-complete-with-helm)
+(require 'auto-complete-config)
+(add-to-list 'ac-dictionary-directories "~/.emacs.d/ac-dict")
+(ac-config-default)
