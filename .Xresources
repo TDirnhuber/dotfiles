@@ -1,4 +1,4 @@
-#include "/home/toby/.colors/SolarizedDark"
+#include "/home/toby/.colors/ContrastDark"
 
 *font: xft:Inconsolata:pixelsize=15
 *boldFont: xft:Inconsolata:pixelsize=15

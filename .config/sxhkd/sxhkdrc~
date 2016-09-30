@@ -5,69 +5,14 @@
 # terminal emulator
 super + Return
 	urxvt
-	
-# text editor
-
-
-ctrl + super + e
-     emacs --daemon
-
-super + e
-     emacsclient -c
-
-# pdfs
-ctrl + super + z
-    tabbed zathura -e
-     
-# python console
-ctrl + super + p
-     urxvt -e ipython
-
-# midnght commander
-ctrl + super + f
-     urxvt -e sudo mc
-
-# firefox
-super + i
-      firefox
 
 # program launcher
 super + space
-	dmenu_aliases -fn "terminus:size=8" -nb "#0C1021" -nf "#f2f2f2" -sb "#253876" -sf "#FFFFFF"
-
-ctrl + alt + l
-      i3lock -i ~/Pictures/ArchPF.png
-
-ctrl + alt + h
-      systemctl hibernate
-
-# playlist
-super + ctrl + m
-      urxvt -e ncmpcpp
-
-# master volume
-ctrl + super + v
-      urxvt -e alsamixer
-#
-# function keys
-#
-
-{_,ctrl} + XF86AudioRaiseVolume
-	mpc -q volume +{2,5}
-	
-{_,ctrl} + XF86AudioLowerVolume
-	mpc -q volume -{2,5}
-
-XF86Audio{Play,Stop,Prev,Next}
-	mpc -q {toggle,stop,prev,next}
-	
-XF86MonBrightness{Up,Down}
-	light -{A,U} 5
+	dmenu_run -fn "terminus:size=8" -nb "#0C1021" -nf "#f2f2f2" -sb "#253876" -sf "#FFFFFF"
 
 # make sxhkd reload its configuration files:
 super + Escape
 	pkill -USR1 -x sxhkd
-
 #
 # bspwm hotkeys
 #
@@ -109,9 +54,6 @@ super + ctrl + {x,y,z}
 # focus/swap
 #
 
-alt + tab
-    bspc node -f @focused:next
-    
 # focus the node in the given direction
 super + {_,shift + }{h,j,k,l}
 	bspc node -{f,s} {west,south,north,east}
@@ -170,7 +112,6 @@ super + ctrl + shift + space
 super + alt + {h,j,k,l}
 	bspc node -z {left -20 0,bottom 0 20,top 0 -20,right 20 0}
 
-
 # contract a window by moving one of its side inward
 super + alt + shift + {h,j,k,l}
 	bspc node -z {right -20 0,top 0 20,bottom 0 -20,left 20 0}
@@ -184,7 +125,7 @@ super + {minus,equal}
 
 # Move or resize window
 super + button{1-3}
-    bspc pointer -g {move,resize_side,resize_corner}
+	bspc pointer -g {move,resize_side,resize_corner}
 
 # Needed for ^^^^
 super + !button{1-3}
@@ -199,3 +140,23 @@ super + shift + period
 super + shift + comma
       bspc node @focused:/ -C forward
 
+
+#
+#Music
+#
+
+super + ctrl + m
+      urxvt -e ncmpcpp
+
+super + v
+      urxvt -e alsamixer
+
+XF86AudioRaiseVolume
+	mpc -q volume +2
+	
+XF86AudioLowerVolume
+	mpc -q volume -2
+	
+XF86Audio{Play,Stop,Prev,Next}
+	mpc -q {toggle,stop,prev,next}
+	
