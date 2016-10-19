@@ -12,7 +12,7 @@ mpc
 setxkbmap -option caps:swapescape
 
 #Start bspwm, hide the cursor if inactive
-
+demacs &
 sxhkd &
 unclutter &
 exec bspwm
