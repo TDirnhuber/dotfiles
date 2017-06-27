@@ -1,0 +1,6 @@
+#! /bin/sh
+while [ 1 ];do
+    cpu_use=$(date +%H:%M)
+    echo "S$cpu_use"
+    sleep 1
+done

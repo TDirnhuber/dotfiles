@@ -93,7 +93,6 @@
 (define-key popup-menu-keymap (kbd "<tab>") 'popup-next)
 (define-key popup-menu-keymap (kbd "<backtab>") 'popup-previous)
 (define-key popup-menu-keymap (kbd "M-p") 'popup-previous)
-
 (defun yas-popup-isearch-prompt (prompt choices &optional display-fn)
   (when (featurep 'popup)
     (popup-menu*
@@ -115,14 +114,15 @@
       '(("en_GB" "[[:alpha:]]" "[^[:alpha:]]" "[']" nil nil nil utf-8)))
 (setq ispell-program-name "hunspell"          ; Use hunspell to correct mistakes
       ispell-dictionary   "en_GB") ; Default dictionary to use
-
+(wc-mode t)
 (linum-relative-toggle)
+
 ;evil mode stuff
 (setq aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l))
 (define-key evil-motion-state-map (kbd "p") #'avy-goto-word-0)
 (define-key evil-motion-state-map (kbd "P") #'avy-goto-line)
 (define-key evil-normal-state-map (kbd "gp") #'avy-goto-word-0)
-(define-key evil-normal-state-map (kbd "gP") #'avy-goto-line)
+(define-key evil-normal-state-map (kbd "gl") #'avy-goto-line)
 (define-key evil-normal-state-map (kbd "gf") #'ido-find-file)
 (define-key evil-normal-state-map (kbd "gs") #'save-buffer)
 (define-key evil-normal-state-map (kbd "gb") #'ido-switch-buffer)
@@ -131,5 +131,5 @@
 (define-key evil-normal-state-map (kbd ";") 'evil-ex)
 (define-key evil-normal-state-map (kbd ":") 'evil-repeat-find-char)
 
-(add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
 (add-to-list 'comint-output-filter-functions 'ansi-color-process-output)
+(add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)

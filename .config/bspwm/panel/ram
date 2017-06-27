@@ -2,11 +2,12 @@
 
 while [ 1 ];do
     # store the total and free memory in two variables
-    read t f <<< `grep -E 'Mem(Total|Free)' /proc/meminfo |awk '{print $2}'`
-    read b c <<< `grep -E '^(Buffers|Cached)' /proc/meminfo |awk '{print $2}'`
+    read t <<< `grep -E 'MemTotal' /proc/meminfo |awk '{print $2}'`
+    read f <<< `grep -E 'MemFree' /proc/meminfo |awk '{print $2}'`
     # then, calcultate the percentage of memory used
-    free=$((100*($t -$f -$c -$b)))
-    bc=$(($free/$t))
+    
+    used=$(($t -$f))
+    bc=$((100*$used/$t))
     echo "R$bc"
     sleep 4
 done

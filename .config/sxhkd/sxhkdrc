@@ -7,8 +7,6 @@ super + Return
 	urxvt
 	
 # text editor
-
-
 ctrl + super + e
      emacs --daemon
 
@@ -33,10 +31,10 @@ super + i
 
 # program launcher
 super + space
-	dmenu_aliases -fn "terminus:size=8" -nb "#0C1021" -nf "#f2f2f2" -sb "#253876" -sf "#FFFFFF"
+	dmenu_aliases -fn "terminus:size=8" -nb "#000000" -nf "#f2f2f2" -sb "#253876" -sf "#FFFFFF"
 
 ctrl + alt + l
-      i3lock -i ~/Pictures/ArchPF.png
+      killall compton && i3lock -n --clock -i ~/pictures/wallpapers/poly1.png -t && compton
 
 ctrl + alt + h
       systemctl hibernate
@@ -53,17 +51,27 @@ ctrl + super + v
 #
 
 {_,ctrl} + XF86AudioRaiseVolume
-	mpc -q volume +{2,5}
+	mpc -q volume +{3,7}
 	
 {_,ctrl} + XF86AudioLowerVolume
-	mpc -q volume -{2,5}
+	mpc -q volume -{4,7}
 
 XF86Audio{Play,Stop,Prev,Next}
 	mpc -q {toggle,stop,prev,next}
-	
+
+ctrl + XF86Audio{Play,Next}
+        mpc {single,shuffle}
+        
+# screen
 XF86MonBrightness{Up,Down}
 	light -{A,U} 5
+	
+ctrl + XF86MonBrightnessDown
+	xset s on +dpms	
 
+ctrl + XF86MonBrightnessUp
+	xset s off -dpms	
+	
 # make sxhkd reload its configuration files:
 super + Escape
 	pkill -USR1 -x sxhkd
@@ -108,13 +116,14 @@ super + ctrl + {x,y,z}
 #
 # focus/swap
 #
-
-alt + tab
-    bspc node -f @focused:next
     
 # focus the node in the given direction
 super + {_,shift + }{h,j,k,l}
 	bspc node -{f,s} {west,south,north,east}
+
+# focus and swap the last focused node
+super + p 
+        bspc node -s older -f older
 
 # focus the node for the given path jump
 super + {p,b,comma,period}
@@ -137,6 +146,9 @@ super + {o,i}
 	bspc wm -h off; \
 	bspc node {older,newer} -f; \
 	bspc wm -h on
+
+alt + tab
+        bspc node -f older -s older
 
 # focus or send to the given desktop
 super + {_,shift + }{1-9,0}
@@ -199,3 +211,9 @@ super + shift + period
 super + shift + comma
       bspc node @focused:/ -C forward
 
+super + f5
+      if pgrep -x compton > /dev/null;then
+      pkill compton
+      else
+      compton
+      fi
