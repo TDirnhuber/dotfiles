@@ -14,6 +14,7 @@ alias py='python'
 alias gits='git status'
 alias pyt='py.test'
 alias wifi='sudo wifi-menu'
+alias firefax='apulse firefox'
 
 weather() {
 if [ "$1" == "-n" ]

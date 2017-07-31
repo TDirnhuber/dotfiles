@@ -3,7 +3,7 @@
 while [ 1 ];do
     # store the total and free memory in two variables
     read t <<< `grep -E 'MemTotal' /proc/meminfo |awk '{print $2}'`
-    read f <<< `grep -E 'MemFree' /proc/meminfo |awk '{print $2}'`
+    read f <<< `grep -E 'MemAvailable' /proc/meminfo |awk '{print $2}'`
     # then, calcultate the percentage of memory used
     
     used=$(($t -$f))

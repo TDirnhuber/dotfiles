@@ -12,7 +12,5 @@ mpc
 setxkbmap -layout gb -option caps:escape
 
 #Start bspwm, hide the cursor if inactive
-panel &
-sxhkd &
 unclutter &
 exec bspwm

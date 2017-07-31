@@ -22,8 +22,10 @@
 (package-initialize)
 
 (add-to-list 'custom-theme-load-path "~/.emacs.d/emacs-color-theme-solarized")
+(add-to-list 'custom-theme-load-path "~/.emacs.d/blackboard-theme")
 (customize-set-variable 'solarized-termcolors 256)
-(load-theme 'solarized-dark t)
+;;(load-theme 'solarized-dark t)
+(load-theme 'blackboard t)
 
 ;;(set-frame-parameter (selected-frame) 'alpha '(90 90))
 ;;(add-to-list 'default-frame-alist '(alpha 90 90))
@@ -75,6 +77,9 @@
      (output-dvi "xdvi")
      (output-pdf "Zathura")
      (output-html "xdg-open"))))
+ '(custom-safe-themes
+   (quote
+    ("3b5db84c66cf5318839d3659f99a7fbc20648028d0943efae07469f29c8cb4a2" "81a513dbb5af2463e4d1d58b27d94050ae32d63b9ac1e99050c86b3808aa9273" "ea48a8cc8e80b3cd513b118df15f649d5020f5c37946d1cac80594ec8431bd4b" "200f4a21e4012909915adfa873675e7c689a4423fca2eb707e11684ca2ae7f57" "45389861076a9ce98c337841f57da69812e16bd498a54f5ce9e5681401737a63" "f1b10300dd719006b1848f64fdac5c98c9f71e51c0a62902678de60a0616fe04" "6991956713ed682997f056bf16076fbba11880ac667bf863125f75482588085b" "8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4" "4c7a1f0559674bf6d5dd06ec52c8badc5ba6e091f954ea364a020ed702665aa1" default)))
  '(package-selected-packages
    (quote
     (ace-window ## avy linum-relative flyspell-correct wc-goal-mode wc-mode yasnippet solarized-theme magit evil-tutor cdlatex auctex ac-helm)))
