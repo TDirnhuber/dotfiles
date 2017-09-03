@@ -1,5 +1,5 @@
 ##Set wallpaper
-hsetroot -fill ~/pictures/wallpapers/poly1.png
+hsetroot -fill ~/pictures/wallpapers/minimal2.png
 
 ##Update display config
 [[ -f ~/.Xresources ]] && xrdb -merge -I$HOME ~/.Xresources
