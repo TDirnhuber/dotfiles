@@ -2,7 +2,7 @@
 #~/.bash_profile
 #
 [[ -f ~/.bashrc ]] && . ~/.bashrc
-PATH="$PATH:/home/toby/scripts:/home/toby/.config/bspwm/panel"
+PATH="$PATH:~/scripts:~/.config/bspwm/panel"
 export PANEL_FIFO="/tmp/panel-fifo"
 export PATH
 . ~/.bash_aliases

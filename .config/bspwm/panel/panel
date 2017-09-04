@@ -10,16 +10,16 @@ trap 'trap - TERM; kill 0' INT TERM QUIT EXIT
 [ -e "$PANEL_FIFO" ] && rm "$PANEL_FIFO"
 mkfifo "$PANEL_FIFO"
 bspc control --subscribe > "$PANEL_FIFO" &
-. /home/toby/.config/bspwm/panel/panelconf
+. ~/.config/bspwm/panel/panelconf
 bspc config top_padding $PANEL_HEIGHT
 bspc subscribe report > "$PANEL_FIFO" &
-/home/toby/.config/bspwm/panel/clock > "$PANEL_FIFO" &
-/home/toby/.config/bspwm/panel/battery > "$PANEL_FIFO" &
-/home/toby/.config/bspwm/panel/music > "$PANEL_FIFO" &
-/home/toby/.config/bspwm/panel/cpu > "$PANEL_FIFO" &
-/home/toby/.config/bspwm/panel/ram > "$PANEL_FIFO" &
+~/.config/bspwm/panel/clock > "$PANEL_FIFO" &
+~/.config/bspwm/panel/battery > "$PANEL_FIFO" &
+~/.config/bspwm/panel/music > "$PANEL_FIFO" &
+~/.config/bspwm/panel/cpu > "$PANEL_FIFO" &
+~/.config/bspwm/panel/ram > "$PANEL_FIFO" &
 
-/home/toby/.config/bspwm/panel/panel_bar < "$PANEL_FIFO" | lemonbar -a 32 -n "$PANEL_WM_NAME" -g x$PANEL_HEIGHT -f "$FONT1" -f "$FONT2" -F "$COLOR_DEFAULT_FG" -B "$COLOR_DEFAULT_BG" | sh &
+~/.config/bspwm/panel/panel_bar < "$PANEL_FIFO" | lemonbar -a 32 -n "$PANEL_WM_NAME" -g x$PANEL_HEIGHT -f "$FONT1" -f "$FONT2" -F "$COLOR_DEFAULT_FG" -B "$COLOR_DEFAULT_BG" | sh &
 
 wid=$(xdo id -a "$PANEL_WM_NAME")
 tries_left=20

@@ -9,7 +9,7 @@ PS1='\W \$ '
 . ~/.bash_aliases
 export VISUAL=emacs
 export EDITOR="$VISUAL"
-export PYTHONPATH="$PYTHONPATH:/home/toby/code/poker"
+export PYTHONPATH="$PYTHONPATH:~/code/poker"
 export WORKON_HOME=~/.virtualenvs
 if [ -f `which virtualenvwrapper_lazy.sh` ]; then
     source `which virtualenvwrapper_lazy.sh`
