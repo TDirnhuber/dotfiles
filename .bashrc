@@ -11,7 +11,7 @@ export VISUAL=emacs
 export EDITOR="$VISUAL"
 export PYTHONPATH="$PYTHONPATH:~/code/poker"
 export WORKON_HOME=~/.virtualenvs
-if [ -f `which virtualenvwrapper_lazy.sh` ]; then
-    source `which virtualenvwrapper_lazy.sh`
-fi
+#if [ -f `which virtualenvwrapper_lazy.sh` ]; then
+#    source `which virtualenvwrapper_lazy.sh`
+#fi
 
